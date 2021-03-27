@@ -1,24 +1,21 @@
-# README
+# Todo Dockerizing App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
 
-Things you may want to cover:
+build the project
 
-* Ruby version
+```bash
+docker-compose build
+```
 
-* System dependencies
+Setup db
 
-* Configuration
+```bash
+docker-compose run web rake db:setup
+```
 
-* Database creation
+Run Project
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+docker-compose up
+```

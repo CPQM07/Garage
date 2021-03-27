@@ -12,6 +12,7 @@ class GarageListsController < ApplicationController
   end
 
   def edit
+    respond_modal_with @garage_list
   end
 
   def create

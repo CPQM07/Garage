@@ -9,6 +9,7 @@ class LabTasksController < ApplicationController
   end
 
   def edit
+    respond_modal_with @lab_task
   end
 
   def create
@@ -23,7 +24,7 @@ class LabTasksController < ApplicationController
       flash[:error] = "No fue posible actualizar la tarea"
     end
 
-    respond_modal_with @garage_list, location: garage_lists_path
+    respond_modal_with @lab_task, location: garage_lists_path
   end
 
   def destroy

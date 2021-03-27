@@ -1,0 +1,25 @@
+p#notice = notice
+.row
+  - @garage_lists.each do |garage_list|
+    .col-12.col-md-6
+      .card.mb-4 class="#{garage_list.all_complete ? 'border-success' : 'border-secondary'}"
+        .card-header.bg-white.d-flex.justify-content-between.align-items-center
+          = garage_list.title
+          .d-flex.justify-content-between.align-items-center
+            = link_to new_garage_list_lab_task_path(garage_list.id), class: 'btn btn-primary', data: { modal: true }  do
+              i.bi.bi-plus-square-fill
+            = link_to edit_garage_list_path(garage_list.id), class: 'btn btn-warning text-white mx-2', data: { modal: true }  do
+              i.bi.bi-pencil-fill
+            = link_to garage_list_path(garage_list.id), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } do
+              i.bi.bi-trash2-fill
+        .card-body.text-secondary
+          .card-body
+            - garage_list.lab_tasks.each do |lab_task|
+              .card
+                .card-body.d-flex.justify-content-between.align-items-center
+                  = lab_task.title
+                  .d-flex.justify-content-end.align-items-center
+                    = link_to edit_garage_list_lab_task_path(garage_list.id, lab_task.id), class: 'text-warning mx-2', data: { modal: true }  do
+                      i.bi.bi-pencil-fill
+                    = link_to garage_list_lab_task_path(garage_list.id, lab_task.id), class: 'text-danger', method: :delete, data: { confirm: 'Are you sure?' } do
+                      i.bi.bi-trash2-fill

@@ -1,0 +1,14 @@
+= form_for([@garage_list, lab_task], remote: request.xhr?, html: { data: { modal: true } }) do |form|
+  .modal-body
+    = render partial: 'common/errors', locals: { target: lab_task }
+    .form-group
+      = form.label :title
+      = form.text_field :title, class: 'form-control'
+    .form-group
+      = form.label :description
+      = form.text_field :description, class: 'form-control'
+    .form-group
+      = form.label :complete, class: 'form-check-label'
+      = form.check_box :complete, class: 'form-check-input'
+  .modal-footer
+    = form.button :submit, class: 'btn btn-success'
